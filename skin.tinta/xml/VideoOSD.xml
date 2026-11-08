@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Touch video OSD: top bar, controls in the centre, seek track and chips at the bottom. -->
+<window>
+	<defaultcontrol always="true">602</defaultcontrol>
+	<include>AnimWindow</include>
+	<controls>
+		<!-- scrims for legibility over the video -->
+		<control type="image">
+			<left>0</left><top>0</top><right>0</right><height>330</height>
+			<texture colordiffuse="B3000000" flipy="true">shapes/fade_v.png</texture>
+		</control>
+		<control type="image">
+			<left>0</left><bottom>0</bottom><right>0</right><height>440</height>
+			<texture colordiffuse="CC000000">shapes/fade_v.png</texture>
+		</control>
+		<control type="image">
+			<left>0</left><top>0</top><right>0</right><bottom>0</bottom>
+			<texture colordiffuse="33000000">white.png</texture>
+		</control>
+
+		<!-- top bar -->
+		<include content="IconButton">
+			<param name="id">600</param>
+			<param name="left">33</param><param name="top">22</param>
+			<param name="icon">{ic:arrow_back}</param>
+			<param name="color">white</param>
+			<param name="onclick">PlayerControl(Stop)</param>
+		</include>
+		<control type="label">
+			<left>187</left><top>33</top><right>500</right><height>66</height>
+			<label>$VAR[OSDTitle]</label>
+			<font>title_m</font>
+			<textcolor>white</textcolor>
+		</control>
+		<control type="label">
+			<left>187</left><top>99</top><right>500</right><height>55</height>
+			<label>$VAR[OSDSubtitle]</label>
+			<font>body_m</font>
+			<textcolor>CCFFFFFF</textcolor>
+		</control>
+		<control type="grouplist">
+			<right>33</right><top>22</top><width>440</width><height>132</height>
+			<orientation>horizontal</orientation>
+			<align>right</align>
+			<include content="IconButton">
+				<param name="id">603</param>
+				<param name="icon">{ic:subtitles}</param>
+				<param name="color">white</param>
+				<param name="onclick">ActivateWindow(osdsubtitlesettings)</param>
+			</include>
+			<include content="IconButton">
+				<param name="id">604</param>
+				<param name="icon">{ic:graphic_eq}</param>
+				<param name="color">white</param>
+				<param name="onclick">ActivateWindow(osdaudiosettings)</param>
+			</include>
+			<include content="IconButton">
+				<param name="id">605</param>
+				<param name="icon">{ic:tune}</param>
+				<param name="color">white</param>
+				<param name="onclick">ActivateWindow(osdvideosettings)</param>
+			</include>
+		</control>
+
+		<!-- centre controls -->
+		<control type="group">
+			<centerleft>50%</centerleft><centertop>48%</centertop>
+			<width>770</width><height>242</height>
+			<include content="IconButton">
+				<param name="id">601</param>
+				<param name="left">0</param><param name="top">55</param>
+				<param name="icon">{ic:replay_10}</param>
+				<param name="font">icon_l</param>
+				<param name="color">white</param>
+				<param name="bg">59000000</param>
+				<param name="onclick">Seek(-10)</param>
+			</include>
+			<control type="group">
+				<left>264</left><top>0</top><width>242</width><height>242</height>
+				<include content="Shape">
+					<param name="r">77</param>
+					<param name="color">$VAR[c_primary_container]</param>
+				</include>
+				<include content="Shape">
+					<param name="r">77</param>
+					<param name="color">1FFFFFFF</param>
+					<param name="visible">Control.HasFocus(602)</param>
+				</include>
+				<control type="button" id="602">
+					<texturefocus/><texturenofocus/>
+					<label/>
+					<textcolor>00000000</textcolor>
+					<onclick>PlayerControl(Play)</onclick>
+					<onleft>601</onleft><onright>606</onright><ondown>607</ondown><onup>600</onup>
+				</control>
+				<control type="label">
+					<label>$VAR[PlayPauseIcon]</label>
+					<font>icon_xl_fill</font>
+					<textcolor>$VAR[c_on_primary_container]</textcolor>
+					<align>center</align><aligny>center</aligny>
+				</control>
+			</control>
+			<include content="IconButton">
+				<param name="id">606</param>
+				<param name="left">638</param><param name="top">55</param>
+				<param name="icon">{ic:forward_10}</param>
+				<param name="font">icon_l</param>
+				<param name="color">white</param>
+				<param name="bg">59000000</param>
+				<param name="onclick">Seek(10)</param>
+			</include>
+		</control>
+
+		<!-- seek track: thick M3 track (16dp), primary fill, cache, slider -->
+		<control type="group">
+			<left>66</left><right>66</right><bottom>187</bottom><height>132</height>
+			<control type="label">
+				<left>0</left><top>0</top><width>264</width><height>132</height>
+				<label>$INFO[Player.Time]</label>
+				<font>label_l</font>
+				<textcolor>white</textcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="label">
+				<right>0</right><top>0</top><width>264</width><height>132</height>
+				<label>-$INFO[Player.TimeRemaining]</label>
+				<font>label_l</font>
+				<textcolor>CCFFFFFF</textcolor>
+				<align>right</align><aligny>center</aligny>
+			</control>
+			<control type="group">
+				<left>286</left><right>286</right><top>0</top><height>132</height>
+				<control type="progress">
+					<left>0</left><right>0</right><top>44</top><height>44</height>
+					<texturebg border="22" colordiffuse="40FFFFFF">shapes/r22.png</texturebg>
+					<midtexture border="22" colordiffuse="40FFFFFF">shapes/r22.png</midtexture>
+					<info>Player.ProgressCache</info>
+				</control>
+				<control type="progress">
+					<left>0</left><right>0</right><top>44</top><height>44</height>
+					<texturebg border="22" colordiffuse="01FFFFFF">shapes/r22.png</texturebg>
+					<midtexture border="22" colordiffuse="$VAR[c_primary]">shapes/r22.png</midtexture>
+					<texturenib colordiffuse="$VAR[c_primary]">shapes/nib.png</texturenib>
+					<info>Player.Progress</info>
+				</control>
+				<control type="slider" id="607">
+					<left>0</left><right>0</right><top>0</top><height>132</height>
+					<texturesliderbar>shapes/track_hit.png</texturesliderbar>
+					<textureslidernib>shapes/track_hit.png</textureslidernib>
+					<textureslidernibfocus>shapes/track_hit.png</textureslidernibfocus>
+					<action>seek</action>
+					<onup>602</onup><ondown>608</ondown>
+					<visible>Player.SeekEnabled</visible>
+				</control>
+			</control>
+		</control>
+
+		<!-- chip -->
+		<control type="grouplist">
+			<left>66</left><right>66</right><bottom>44</bottom><height>132</height>
+			<orientation>horizontal</orientation>
+			<itemgap>22</itemgap>
+			<onup>607</onup>
+			<include content="OSDChip">
+				<param name="id">608</param>
+				<param name="icon">{ic:closed_caption}</param>
+				<param name="label">$VAR[SubtitleChipLabel]</param>
+				<param name="onclick">ShowSubtitles</param>
+			</include>
+			<include content="OSDChip">
+				<param name="id">609</param>
+				<param name="icon">{ic:aspect_ratio}</param>
+				<param name="label">$LOCALIZE[629]</param>
+				<param name="onclick">Dialog.Close(videoosd,true)</param>
+				<param name="onclick2">Action(AspectRatio)</param>
+			</include>
+			<include content="OSDChip">
+				<param name="id">610</param>
+				<param name="icon">{ic:info}</param>
+				<param name="label">$LOCALIZE[19033]</param>
+				<param name="onclick">Dialog.Close(videoosd,true)</param>
+				<param name="onclick2">Action(PlayerProcessInfo)</param>
+			</include>
+		</control>
+	</controls>
+</window>

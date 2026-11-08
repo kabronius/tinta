@@ -1,0 +1,180 @@
+# Kodi Media Center language file
+# Addon Name: Tinta
+# Addon id: skin.tinta
+msgid ""
+msgstr ""
+"Project-Id-Version: skin.tinta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#31000"
+msgid "Default"
+msgstr "Predefinito"
+
+msgctxt "#31001"
+msgid "Good morning"
+msgstr "Buongiorno"
+
+msgctxt "#31002"
+msgid "Good afternoon"
+msgstr "Buon pomeriggio"
+
+msgctxt "#31003"
+msgid "Good evening"
+msgstr "Buonasera"
+
+msgctxt "#31004"
+msgid "Good night"
+msgstr "Buonanotte"
+
+msgctxt "#31010"
+msgid "Continue watching"
+msgstr "Continua a guardare"
+
+msgctxt "#31011"
+msgid "Your add-ons"
+msgstr "I tuoi add-on"
+
+msgctxt "#31012"
+msgid "See all"
+msgstr "Vedi tutti"
+
+msgctxt "#31013"
+msgid "Resume"
+msgstr "Riprendi"
+
+msgctxt "#31014"
+msgid "Details"
+msgstr "Dettagli"
+
+msgctxt "#31015"
+msgid "Play"
+msgstr "Riproduci"
+
+msgctxt "#31016"
+msgid "Trailer"
+msgstr "Trailer"
+
+msgctxt "#31017"
+msgid "Choose a source"
+msgstr "Scegli una fonte"
+
+msgctxt "#31018"
+msgid "Colors from artwork"
+msgstr "Colori dalla copertina"
+
+msgctxt "#31019"
+msgid "Always use base colors"
+msgstr "Usa sempre i colori di base"
+
+msgctxt "#31020"
+msgid "Nothing in progress"
+msgstr "Niente in corso"
+
+msgctxt "#31021"
+msgid "Pick an add-on to start browsing"
+msgstr "Scegli un add-on per iniziare"
+
+msgctxt "#31022"
+msgid "View"
+msgstr "Vista"
+
+msgctxt "#31023"
+msgid "Sort"
+msgstr "Ordina"
+
+msgctxt "#31024"
+msgid "List"
+msgstr "Elenco"
+
+msgctxt "#31025"
+msgid "Posters"
+msgstr "Locandine"
+
+msgctxt "#31026"
+msgid "Remaining"
+msgstr "Mancano"
+
+msgctxt "#31027"
+msgid "Items"
+msgstr "Elementi"
+
+msgctxt "#31028"
+msgid "Appearance"
+msgstr "Aspetto"
+
+msgctxt "#31029"
+msgid "Open add-on settings"
+msgstr "Impostazioni add-on"
+
+msgctxt "#31031"
+msgid "Trending"
+msgstr "Di tendenza"
+
+msgctxt "#31032"
+msgid "Popular"
+msgstr "Popolari"
+
+msgctxt "#31033"
+msgid "Top rated"
+msgstr "Più votati"
+
+msgctxt "#31034"
+msgid "Recently released"
+msgstr "Usciti di recente"
+
+msgctxt "#31035"
+msgid "New shows"
+msgstr "Serie nuove"
+
+msgctxt "#31036"
+msgid "Movies page rows"
+msgstr "File della pagina Film"
+
+msgctxt "#31037"
+msgid "TV shows page rows"
+msgstr "File della pagina Serie TV"
+
+msgctxt "#31038"
+msgid "Live TV"
+msgstr "Diretta"
+
+msgctxt "#31039"
+msgid "Live TV and search"
+msgstr "Diretta e ricerca"
+
+msgctxt "#31040"
+msgid "Video decoder"
+msgstr "Decoder video"
+
+msgctxt "#31041"
+msgid "Video"
+msgstr "Video"
+
+msgctxt "#31042"
+msgid "Deinterlacing"
+msgstr "Deinterlacciamento"
+
+msgctxt "#31043"
+msgid "Audio"
+msgstr "Audio"
+
+msgctxt "#31044"
+msgid "Cache"
+msgstr "Cache"
+
+msgctxt "#31045"
+msgid "Not set"
+msgstr "Non impostato"
+
+msgctxt "#31048"
+msgid "Row"
+msgstr "Fila"
+
+msgctxt "#31049"
+msgid "No rows yet. Long-press a folder in any video add-on and choose \"Use in Tinta…\"."
+msgstr "Ancora nessuna fila. Tieni premuto su una cartella di un add-on video qualsiasi e scegli \"Usa in Tinta…\"."
+

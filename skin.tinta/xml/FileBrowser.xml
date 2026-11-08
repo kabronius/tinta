@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File browser (install from zip, sources). Core ids: 411 heading, 412 path, 450 list, 451 thumbnails,
+     413 OK, 414 cancel, 415 new folder, 416 mirror. -->
+<window>
+	<defaultcontrol always="true">450</defaultcontrol>
+	<include>AnimDialog</include>
+	<controls>
+		<include content="DialogFrame">
+			<param name="width">1980</param>
+			<param name="height">1012</param>
+			<param name="header_id">411</param>
+		</include>
+		<control type="group">
+			<centerleft>50%</centerleft><centertop>50%</centertop>
+			<width>1980</width><height>1012</height>
+			<control type="label" id="412">
+				<left>66</left><top>143</top><right>66</right><height>55</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			</control>
+			<control type="list" id="450">
+				<left>33</left><top>220</top><right>33</right><bottom>165</bottom>
+				<ondown>9000</ondown>
+				<itemlayout width="1914" height="165">
+					<include content="DialogListRow"><param name="focus">false</param><param name="width">1914</param><param name="list">450</param></include>
+				</itemlayout>
+				<focusedlayout width="1914" height="165">
+					<include content="DialogListRow"><param name="focus">true</param><param name="width">1914</param><param name="list">450</param></include>
+				</focusedlayout>
+			</control>
+			<control type="panel" id="451">
+				<left>0</left><top>0</top><width>1</width><height>1</height>
+				<visible>false</visible>
+				<itemlayout width="1" height="1"/>
+				<focusedlayout width="1" height="1"/>
+			</control>
+			<control type="grouplist" id="9000">
+				<left>66</left><right>44</right><bottom>33</bottom><height>110</height>
+				<orientation>horizontal</orientation>
+				<align>right</align>
+				<itemgap>22</itemgap>
+				<onup>450</onup>
+				<include content="DialogButton"><param name="id">416</param><param name="label">$LOCALIZE[749]</param></include>
+				<include content="DialogButton"><param name="id">415</param><param name="label">$LOCALIZE[119]</param></include>
+				<include content="DialogButton"><param name="id">414</param><param name="label">$LOCALIZE[222]</param></include>
+				<include content="DialogButtonFilled"><param name="id">413</param><param name="label">$LOCALIZE[186]</param></include>
+			</control>
+		</control>
+	</controls>
+</window>

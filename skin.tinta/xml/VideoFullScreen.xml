@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Full-screen video. Core ids 10-12: notice lines (e.g. "View mode: Zoom") the core shows for a few seconds. -->
+<window>
+	<controls>
+		<control type="group" id="1">
+			<centerleft>50%</centerleft><top>44</top><width>1320</width><height>198</height>
+			<visible>Control.IsVisible(10)</visible>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">$VAR[c_inverse_surface]</param>
+			</include>
+			<control type="label" id="10">
+				<left>55</left><top>22</top><right>55</right><height>66</height>
+				<font>title_m</font>
+				<textcolor>$VAR[c_inverse_on_surface]</textcolor>
+				<align>center</align><aligny>center</aligny>
+			</control>
+			<control type="label" id="11">
+				<left>55</left><top>88</top><right>55</right><height>44</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_inverse_on_surface]</textcolor>
+				<align>center</align><aligny>center</aligny>
+			</control>
+			<control type="label" id="12">
+				<left>55</left><top>132</top><right>55</right><height>44</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_inverse_on_surface]</textcolor>
+				<align>center</align><aligny>center</aligny>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Player.Caching + !Window.IsVisible(videoosd)</visible>
+			<include>Spinner</include>
+		</control>
+	</controls>
+</window>

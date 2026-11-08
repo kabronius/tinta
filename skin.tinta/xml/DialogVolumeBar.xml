@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
+	<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+	<controls>
+		<control type="group">
+			<centerleft>50%</centerleft><top>44</top><width>880</width><height>154</height>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_high]</param>
+			</include>
+			<control type="label">
+				<left>33</left><top>0</top><width>110</width><height>154</height>
+				<label>$VAR[VolumeIcon]</label>
+				<font>icon_fill</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<align>center</align><aligny>center</aligny>
+			</control>
+			<control type="progress" id="29999">
+				<left>165</left><right>66</right><top>55</top><height>44</height>
+				<info>Player.Volume</info>
+				<texturebg border="22" colordiffuse="$VAR[c_secondary_container]">shapes/r22.png</texturebg>
+				<midtexture border="22" colordiffuse="$VAR[c_primary]">shapes/r22.png</midtexture>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Add/edit media source. Core ids: 2 heading, 10 paths, 11 browse, 12 name, 13 add path,
+     14 remove path, 18 OK, 19 cancel, 20 content type. A tap on a path opens the keyboard. -->
+<window>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<include>AnimDialog</include>
+	<controls>
+		<include content="DialogFrame">
+			<param name="width">1760</param>
+			<param name="height">1012</param>
+			<param name="header_id">2</param>
+		</include>
+		<control type="group">
+			<centerleft>50%</centerleft><centertop>50%</centertop>
+			<width>1760</width><height>1012</height>
+			<control type="label">
+				<left>66</left><top>154</top><right>66</right><height>55</height>
+				<label>$LOCALIZE[1021]</label>
+				<font>label_l</font>
+				<textcolor>$VAR[c_primary]</textcolor>
+			</control>
+			<control type="list" id="10">
+				<left>33</left><top>220</top><width>1694</width><height>297</height>
+				<ondown>9000</ondown>
+				<itemlayout width="1694" height="165">
+					<include content="DialogListRow"><param name="focus">false</param><param name="width">1694</param><param name="list">10</param></include>
+				</itemlayout>
+				<focusedlayout width="1694" height="165">
+					<include content="DialogListRow"><param name="focus">true</param><param name="width">1694</param><param name="list">10</param></include>
+				</focusedlayout>
+			</control>
+			<control type="grouplist" id="9000">
+				<left>66</left><top>528</top><right>66</right><height>110</height>
+				<orientation>horizontal</orientation>
+				<itemgap>22</itemgap>
+				<onup>10</onup><ondown>12</ondown>
+				<include content="DialogButton"><param name="id">11</param><param name="label">$LOCALIZE[1024]</param></include>
+				<include content="DialogButton"><param name="id">13</param><param name="label">$LOCALIZE[15019]</param></include>
+				<include content="DialogButton"><param name="id">14</param><param name="label">$LOCALIZE[1210]</param></include>
+			</control>
+			<control type="label">
+				<left>66</left><top>649</top><right>66</right><height>55</height>
+				<label>$LOCALIZE[1022]</label>
+				<font>label_l</font>
+				<textcolor>$VAR[c_primary]</textcolor>
+			</control>
+			<control type="edit" id="12">
+				<left>66</left><top>715</top><right>66</right><height>110</height>
+				<label/>
+				<font>body_l</font>
+				<textoffsetx>44</textoffsetx>
+				<aligny>center</aligny>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<focusedcolor>$VAR[c_on_surface]</focusedcolor>
+				<texturenofocus border="22" colordiffuse="$VAR[c_outline]">shapes/r22_o.png</texturenofocus>
+				<texturefocus border="22" colordiffuse="$VAR[c_primary]">shapes/r22_o.png</texturefocus>
+				<onup>9000</onup><ondown>9001</ondown>
+			</control>
+			<control type="button" id="20">
+				<left>0</left><top>0</top><width>1</width><height>1</height>
+				<visible>false</visible>
+			</control>
+			<control type="grouplist" id="9001">
+				<left>66</left><right>44</right><bottom>44</bottom><height>110</height>
+				<orientation>horizontal</orientation>
+				<align>right</align>
+				<itemgap>22</itemgap>
+				<onup>12</onup>
+				<include content="DialogButton"><param name="id">19</param><param name="label">$LOCALIZE[222]</param></include>
+				<include content="DialogButtonFilled"><param name="id">18</param><param name="label">$LOCALIZE[186]</param></include>
+			</control>
+		</control>
+	</controls>
+</window>

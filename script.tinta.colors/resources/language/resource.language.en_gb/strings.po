@@ -1,0 +1,51 @@
+# Kodi Media Center language file
+# Addon id: script.tinta.colors
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en_GB\n"
+
+msgctxt "#32000"
+msgid "Use in Tinta…"
+msgstr ""
+
+msgctxt "#32001"
+msgid "Use \"%s\" for"
+msgstr ""
+
+msgctxt "#32002"
+msgid "%s → %s"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Empty. Long-press a folder in any video add-on and choose \"Use in Tinta…\"."
+msgstr ""
+
+msgctxt "#32004"
+msgid "Open"
+msgstr ""
+
+msgctxt "#32005"
+msgid "Remove"
+msgstr ""
+
+msgctxt "#32010"
+msgid "Movies"
+msgstr ""
+
+msgctxt "#32011"
+msgid "TV shows"
+msgstr ""
+
+msgctxt "#32012"
+msgid "Live TV"
+msgstr ""
+
+msgctxt "#32013"
+msgid "Search"
+msgstr ""
+
+msgctxt "#32014"
+msgid "row %d"
+msgstr ""
+

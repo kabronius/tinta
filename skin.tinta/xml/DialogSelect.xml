@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Select dialog as an M3 side sheet (add-on source choice, options).
+     Core ids: 1 heading, 2 item count, 3 simple list, 6 detailed list, 5 extra button, 7 cancel. -->
+<window>
+	<defaultcontrol always="true">3</defaultcontrol>
+	<include>AnimSheetRight</include>
+	<controls>
+		<include>Scrim</include>
+		<control type="group">
+			<top>22</top><bottom>22</bottom><right>22</right><width>1265</width>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_low]</param>
+			</include>
+			<control type="label" id="1">
+				<left>66</left><top>44</top><right>220</right><height>88</height>
+				<font>headline_s</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="label" id="2">
+				<left>66</left><top>128</top><right>220</right><height>50</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			</control>
+			<include content="IconButton">
+				<param name="id">7</param>
+				<param name="left">1100</param><param name="top">33</param>
+				<param name="icon">{ic:close}</param>
+				<param name="color">$VAR[c_on_surface_variant]</param>
+				<param name="onclick"></param>
+			</include>
+			<control type="list" id="3">
+				<left>33</left><top>198</top><right>33</right><bottom>176</bottom>
+				<scrolltime tween="cubic" easing="out">200</scrolltime>
+				<onright>7</onright><ondown>5</ondown>
+				<itemlayout width="1199" height="165">
+					<include content="DialogListRow"><param name="focus">false</param><param name="width">1199</param><param name="list">3</param></include>
+				</itemlayout>
+				<focusedlayout width="1199" height="165">
+					<include content="DialogListRow"><param name="focus">true</param><param name="width">1199</param><param name="list">3</param></include>
+				</focusedlayout>
+			</control>
+			<control type="list" id="6">
+				<left>33</left><top>198</top><right>33</right><bottom>176</bottom>
+				<scrolltime tween="cubic" easing="out">200</scrolltime>
+				<onright>7</onright><ondown>5</ondown>
+				<itemlayout width="1199" height="165">
+					<include content="DialogListRow"><param name="focus">false</param><param name="width">1199</param><param name="list">6</param></include>
+				</itemlayout>
+				<focusedlayout width="1199" height="165">
+					<include content="DialogListRow"><param name="focus">true</param><param name="width">1199</param><param name="list">6</param></include>
+				</focusedlayout>
+			</control>
+			<control type="grouplist">
+				<left>66</left><right>66</right><bottom>44</bottom><height>110</height>
+				<orientation>horizontal</orientation>
+				<align>right</align>
+				<itemgap>22</itemgap>
+				<include content="DialogButton"><param name="id">8</param></include>
+				<include content="DialogButtonFilled"><param name="id">5</param></include>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Numeric pad (PIN, time, date, IP). Core ids: 10-19 digits, 21 done, 23 back, 1 value, 4 heading. -->
+<window>
+	<defaultcontrol always="true">21</defaultcontrol>
+	<include>AnimDialog</include>
+	<controls>
+		<include>Scrim</include>
+		<control type="group">
+			<centerleft>50%</centerleft><centertop>50%</centertop>
+			<width>990</width><height>1056</height>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_high]</param>
+			</include>
+			<control type="label" id="4">
+				<left>66</left><top>33</top><right>66</right><height>77</height>
+				<font>title_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<align>center</align><aligny>center</aligny>
+			</control>
+			<control type="textbox" id="1">
+				<left>66</left><top>110</top><right>66</right><height>110</height>
+				<font>headline_m</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<align>center</align>
+			</control>
+			<control type="radiobutton" id="20"><left>0</left><top>0</top><width>1</width><height>1</height><visible>false</visible></control>
+			<control type="radiobutton" id="22"><left>0</left><top>0</top><width>1</width><height>1</height><visible>false</visible></control>
+			<control type="group">
+				<left>0</left><right>0</right><top>264</top><bottom>44</bottom>
+			<control type="grouplist">
+				<left>0</left><right>0</right><top>0</top><height>165</height>
+				<orientation>horizontal</orientation><align>center</align><itemgap>22</itemgap>
+				<control type="button" id="11">
+					<width>242</width><height>165</height>
+					<label>1</label>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="12">
+					<width>242</width><height>165</height>
+					<label>2</label>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="13">
+					<width>242</width><height>165</height>
+					<label>3</label>
+					<include>KeyStyle</include>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left><right>0</right><top>187</top><height>165</height>
+				<orientation>horizontal</orientation><align>center</align><itemgap>22</itemgap>
+				<control type="button" id="14">
+					<width>242</width><height>165</height>
+					<label>4</label>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="15">
+					<width>242</width><height>165</height>
+					<label>5</label>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="16">
+					<width>242</width><height>165</height>
+					<label>6</label>
+					<include>KeyStyle</include>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left><right>0</right><top>374</top><height>165</height>
+				<orientation>horizontal</orientation><align>center</align><itemgap>22</itemgap>
+				<control type="button" id="17">
+					<width>242</width><height>165</height>
+					<label>7</label>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="18">
+					<width>242</width><height>165</height>
+					<label>8</label>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="19">
+					<width>242</width><height>165</height>
+					<label>9</label>
+					<include>KeyStyle</include>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left><right>0</right><top>561</top><height>165</height>
+				<orientation>horizontal</orientation><align>center</align><itemgap>22</itemgap>
+				<control type="button" id="23">
+					<width>242</width><height>165</height>
+					<label>{ic:backspace}</label>
+					<include>KeyStyleFnIcon</include>
+				</control>
+				<control type="button" id="10">
+					<width>242</width><height>165</height>
+					<label>0</label>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="21">
+					<width>242</width><height>165</height>
+					<label>{ic:check}</label>
+					<include>KeyStyleDone</include><font>icon_fill</font>
+				</control>
+			</control>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Background progress (downloads, add-on buffering). Core ids: 30 heading, 31 text, 32 progress. -->
+<window>
+	<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+	<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	<controls>
+		<control type="group">
+			<right>44</right><top>44</top><width>990</width><height>220</height>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">$VAR[c_surface_container_highest]</param>
+			</include>
+			<control type="label" id="30">
+				<left>44</left><top>33</top><right>44</right><height>60</height>
+				<font>title_s</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+			</control>
+			<control type="label" id="31">
+				<left>44</left><top>93</top><right>44</right><height>55</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			</control>
+			<control type="progress" id="32">
+				<left>44</left><top>170</top><right>44</right><height>11</height>
+				<texturebg colordiffuse="$VAR[c_secondary_container]">white.png</texturebg>
+				<midtexture colordiffuse="$VAR[c_primary]">white.png</midtexture>
+			</control>
+		</control>
+	</controls>
+</window>

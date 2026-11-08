@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Core ids: 10 heading, 11 slider, 12 value. -->
+<window>
+	<defaultcontrol always="true">11</defaultcontrol>
+	<include>AnimDialog</include>
+	<controls>
+		<control type="group">
+			<centerleft>50%</centerleft><bottom>66</bottom>
+			<width>1540</width><height>330</height>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_high]</param>
+			</include>
+			<control type="label" id="10">
+				<left>66</left><top>44</top><right>400</right><height>77</height>
+				<font>title_m</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+			</control>
+			<control type="label" id="12">
+				<right>66</right><top>44</top><width>330</width><height>77</height>
+				<font>title_m</font>
+				<textcolor>$VAR[c_primary]</textcolor>
+				<align>right</align>
+			</control>
+			<control type="image">
+				<left>66</left><right>66</right><top>209</top><height>44</height>
+				<texture border="22" colordiffuse="$VAR[c_secondary_container]">shapes/r22.png</texture>
+			</control>
+			<control type="slider" id="11">
+				<left>66</left><right>66</right><top>165</top><height>132</height>
+				<texturesliderbar>shapes/track_hit.png</texturesliderbar>
+				<textureslidernib colordiffuse="$VAR[c_primary]">shapes/nib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[c_primary]">shapes/nib.png</textureslidernibfocus>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Keyboard. Core ids: keys 100+20*row+column, 300 done, 301 cancel, 302 shift, 303 caps lock,
+     304 symbols, 305/306 cursor, 309 layout, 310 reveal, 8 backspace, 32 space, 311 heading, 312 edit field. -->
+<window>
+	<defaultcontrol always="true">300</defaultcontrol>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<control type="group">
+			<left>55</left><right>55</right><top>22</top><height>154</height>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_highest]</param>
+			</include>
+			<control type="label" id="311">
+				<left>66</left><top>8</top><right>500</right><height>55</height>
+				<font>body_s</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			</control>
+			<control type="edit" id="312">
+				<left>66</left><top>55</top><right>320</right><height>88</height>
+				<font>body_l</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<texturefocus/><texturenofocus/>
+				<aligny>center</aligny>
+			</control>
+			<control type="label" id="313"><left>0</left><top>0</top><width>1</width><height>1</height><visible>false</visible></control>
+			<control type="label" id="314"><left>0</left><top>0</top><width>1</width><height>1</height><visible>false</visible></control>
+			<control type="radiobutton" id="310">
+				<right>165</right><top>11</top><width>132</width><height>132</height>
+				<label>{ic:visibility}</label>
+				<include>KeyStyleIcon</include>
+			</control>
+			<control type="button" id="301">
+				<right>22</right><top>11</top><width>132</width><height>132</height>
+				<label>{ic:close}</label>
+				<include>KeyStyleIcon</include>
+			</control>
+		</control>
+		<control type="group">
+			<left>22</left><right>22</right><top>198</top><bottom>11</bottom>
+			<control type="grouplist">
+				<left>0</left><top>0</top><right>0</right><height>143</height>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>11</itemgap>
+				<control type="button" id="100">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="101">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="102">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="103">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="104">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="105">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="106">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="107">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="108">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="109">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="110">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="111">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="112">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left><top>154</top><right>0</right><height>143</height>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>11</itemgap>
+				<control type="button" id="120">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="121">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="122">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="123">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="124">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="125">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="126">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="127">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="128">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="129">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="130">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="131">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="132">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left><top>308</top><right>0</right><height>143</height>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>11</itemgap>
+				<control type="button" id="140">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="141">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="142">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="143">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="144">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="145">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="146">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="147">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="148">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="149">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="150">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="151">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="152">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left><top>462</top><right>0</right><height>143</height>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>11</itemgap>
+				<control type="button" id="160">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="161">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="162">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="163">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="164">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="165">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="166">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="167">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="168">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="169">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="170">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="171">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+				<control type="button" id="172">
+					<width>148</width><height>143</height>
+					<include>KeyStyle</include>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left><top>616</top><right>0</right><height>143</height>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>11</itemgap>
+				<control type="radiobutton" id="303">
+					<width>200</width><height>143</height>
+					<label>{ic:keyboard_capslock}</label>
+					<include>KeyStyleFnIcon</include>
+				</control>
+				<control type="radiobutton" id="302">
+					<width>200</width><height>143</height>
+					<label>{ic:arrow_upward}</label>
+					<include>KeyStyleFnIcon</include>
+				</control>
+				<control type="radiobutton" id="304">
+					<width>200</width><height>143</height>
+					<label>!?#</label>
+					<include>KeyStyleFn</include>
+					
+				</control>
+				<control type="button" id="309">
+					<width>200</width><height>143</height>
+					<label>{ic:language}</label>
+					<include>KeyStyleFn</include>
+				</control>
+				<control type="button" id="32">
+					<width>520</width><height>143</height>
+					<label>{ic:space_bar}</label>
+					<include>KeyStyleFnIcon</include>
+				</control>
+				<control type="button" id="305">
+					<width>160</width><height>143</height>
+					<label>{ic:chevron_left}</label>
+					<include>KeyStyleFnIcon</include>
+				</control>
+				<control type="button" id="306">
+					<width>160</width><height>143</height>
+					<label>{ic:chevron_right}</label>
+					<include>KeyStyleFnIcon</include>
+				</control>
+				<control type="button" id="8">
+					<width>220</width><height>143</height>
+					<label>{ic:backspace}</label>
+					<include>KeyStyleFnIcon</include>
+				</control>
+				<control type="button" id="300">
+					<width>240</width><height>143</height>
+					<label>{ic:keyboard_return}</label>
+					<include>KeyStyleDone</include>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

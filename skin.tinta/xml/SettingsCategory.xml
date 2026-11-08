@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Settings pages (player, media, interface, system, services).
+     Core ids: 2 heading, 3 categories, 5 settings, 6 description, 20 level, 7-15 templates. -->
+<window>
+	<defaultcontrol always="true">3</defaultcontrol>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<include content="IconButton">
+			<param name="id">9200</param>
+			<param name="left">33</param><param name="top">22</param>
+			<param name="icon">{ic:arrow_back}</param>
+			<param name="color">$VAR[c_on_surface]</param>
+			<param name="onclick">Back</param>
+		</include>
+		<control type="label" id="2">
+			<left>187</left><top>22</top><right>700</right><height>132</height>
+			<font>title_l</font>
+			<textcolor>$VAR[c_on_surface]</textcolor>
+			<aligny>center</aligny>
+		</control>
+		<control type="button" id="20">
+			<right>44</right><top>33</top><width>620</width><height>110</height>
+			<font>label_l</font>
+			<align>center</align><aligny>center</aligny>
+			<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			<focusedcolor>$VAR[c_on_surface]</focusedcolor>
+			<texturenofocus border="55" colordiffuse="$VAR[c_outline_variant]">shapes/r55_o.png</texturenofocus>
+			<texturefocus border="55" colordiffuse="$VAR[c_outline]">shapes/r55_o.png</texturefocus>
+		</control>
+		<!-- categories -->
+		<control type="grouplist" id="3">
+			<left>33</left><top>187</top><width>600</width><bottom>22</bottom>
+			<itemgap>11</itemgap>
+			<onright>5</onright>
+			<onleft>3</onleft>
+		</control>
+		<!-- settings -->
+		<control type="grouplist" id="5">
+			<left>677</left><top>187</top><right>33</right><bottom>198</bottom>
+			<itemgap>0</itemgap>
+			<onleft>3</onleft>
+			<scrolltime tween="cubic" easing="out">200</scrolltime>
+			<pagecontrol>60</pagecontrol>
+		</control>
+		<control type="scrollbar" id="60">
+			<right>11</right><top>187</top><width>8</width><bottom>198</bottom>
+			<texturesliderbackground/>
+			<texturesliderbar colordiffuse="$VAR[c_outline_variant]">white.png</texturesliderbar>
+			<texturesliderbarfocus colordiffuse="$VAR[c_outline]">white.png</texturesliderbarfocus>
+			<orientation>vertical</orientation>
+		</control>
+		<control type="textbox" id="6">
+			<left>721</left><right>66</right><bottom>33</bottom><height>143</height>
+			<font>body_m</font>
+			<textcolor>$VAR[c_on_surface_variant]</textcolor>
+		</control>
+		<!-- templates -->
+		<control type="button" id="10">
+			<width>600</width><height>154</height>
+			<include>CategoryButtonStyle</include>
+		</control>
+		<include content="SettingTemplates">
+			<param name="width">1540</param>
+			<param name="radiox">1353</param>
+		</include>
+	</controls>
+</window>

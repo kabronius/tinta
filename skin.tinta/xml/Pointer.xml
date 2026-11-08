@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hidden pointer: the skin is made for touch. -->
+<window>
+	<controls>
+		<control type="image" id="1">
+			<width>1</width><height>1</height>
+			<texture/>
+		</control>
+	</controls>
+</window>

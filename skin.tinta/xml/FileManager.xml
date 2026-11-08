@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File manager (sources, copy/move). Core ids: 20/21 lists, 101/102 path, 12/13 item count.
+     A long press on an item opens add/edit/remove source, copy, rename, ... -->
+<window>
+	<defaultcontrol always="true">20</defaultcontrol>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<include content="IconButton">
+			<param name="id">9200</param>
+			<param name="left">33</param><param name="top">22</param>
+			<param name="icon">{ic:arrow_back}</param>
+			<param name="color">$VAR[c_on_surface]</param>
+			<param name="onclick">Back</param>
+		</include>
+		<control type="label">
+			<left>187</left><top>22</top><right>44</right><height>132</height>
+			<label>$LOCALIZE[7]</label>
+			<font>title_l</font>
+			<textcolor>$VAR[c_on_surface]</textcolor>
+			<aligny>center</aligny>
+		</control>
+		<control type="group">
+			<left>44</left><top>176</top><width>1067</width><bottom>22</bottom>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_low]</param>
+			</include>
+			<control type="label" id="101">
+				<left>55</left><top>22</top><right>220</right><height>77</height>
+				<font>title_s</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="label" id="12">
+				<right>55</right><top>22</top><width>300</width><height>77</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<align>right</align><aligny>center</aligny>
+			</control>
+			<control type="list" id="20">
+				<left>22</left><top>110</top><right>22</right><bottom>22</bottom>
+				<scrolltime tween="cubic" easing="out">200</scrolltime>
+				<onleft>9200</onleft><onright>21</onright>
+				<itemlayout width="1023" height="165">
+					<include content="DialogListRow"><param name="focus">false</param><param name="width">1023</param><param name="list">20</param></include>
+				</itemlayout>
+				<focusedlayout width="1023" height="165">
+					<include content="DialogListRow"><param name="focus">true</param><param name="width">1023</param><param name="list">20</param></include>
+				</focusedlayout>
+			</control>
+		</control>
+		<control type="group">
+			<left>1139</left><top>176</top><width>1067</width><bottom>22</bottom>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_low]</param>
+			</include>
+			<control type="label" id="102">
+				<left>55</left><top>22</top><right>220</right><height>77</height>
+				<font>title_s</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="label" id="13">
+				<right>55</right><top>22</top><width>300</width><height>77</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<align>right</align><aligny>center</aligny>
+			</control>
+			<control type="list" id="21">
+				<left>22</left><top>110</top><right>22</right><bottom>22</bottom>
+				<scrolltime tween="cubic" easing="out">200</scrolltime>
+				<onleft>20</onleft><onright>21</onright>
+				<itemlayout width="1023" height="165">
+					<include content="DialogListRow"><param name="focus">false</param><param name="width">1023</param><param name="list">21</param></include>
+				</itemlayout>
+				<focusedlayout width="1023" height="165">
+					<include content="DialogListRow"><param name="focus">true</param><param name="width">1023</param><param name="list">21</param></include>
+				</focusedlayout>
+			</control>
+		</control>
+	</controls>
+</window>

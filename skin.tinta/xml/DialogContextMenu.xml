@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- M3 menu. The core positions the dialog and resizes background 999 to the entries.
+     Core ids: 996 grouplist, 1000 button template, 999 background. A tap outside closes it. -->
+<window>
+	<defaultcontrol>996</defaultcontrol>
+	<include>AnimDialog</include>
+	<coordinates>
+		<left>0</left><top>0</top>
+	</coordinates>
+	<controls>
+		<control type="image">
+			<left>-2600</left><top>-1200</top><width>7800</width><height>3600</height>
+			<texture colordiffuse="66000000">white.png</texture>
+		</control>
+		<control type="button">
+			<left>-2600</left><top>-1200</top><width>7800</width><height>3600</height>
+			<texturefocus/><texturenofocus/>
+			<onclick>Action(close)</onclick>
+		</control>
+		<control type="group">
+			<control type="image" id="999">
+				<left>0</left><top>0</top><width>990</width><height>880</height>
+				<texture border="33" colordiffuse="$VAR[c_surface_container]">shapes/r33.png</texture>
+			</control>
+			<control type="grouplist" id="996">
+				<left>0</left><top>0</top><width>990</width>
+				<height max="880">auto</height>
+				<usecontrolcoords>true</usecontrolcoords>
+			</control>
+		</control>
+		<control type="button" id="1000">
+			<left>0</left><width>990</width><height>154</height>
+			<font>body_l</font>
+			<textoffsetx>66</textoffsetx>
+			<aligny>center</aligny>
+			<textcolor>$VAR[c_on_surface]</textcolor>
+			<focusedcolor>$VAR[c_on_surface]</focusedcolor>
+			<texturenofocus/>
+			<texturefocus border="33" colordiffuse="1FFFFFFF">shapes/r33.png</texturefocus>
+		</control>
+	</controls>
+</window>

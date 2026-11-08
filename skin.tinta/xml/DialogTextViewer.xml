@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Core ids: 1 heading, 5 text, 1000 close. -->
+<window>
+	<defaultcontrol always="true">1000</defaultcontrol>
+	<include>AnimDialog</include>
+	<controls>
+		<include content="DialogFrame">
+			<param name="width">1870</param>
+			<param name="height">990</param>
+		</include>
+		<control type="group">
+			<centerleft>50%</centerleft><centertop>50%</centertop>
+			<width>1870</width><height>990</height>
+			<control type="textbox" id="5">
+				<left>66</left><top>165</top><right>66</right><bottom>187</bottom>
+				<font>body_m_lines</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<pagecontrol>3000</pagecontrol>
+			</control>
+			<control type="scrollbar" id="3000">
+				<right>22</right><top>165</top><width>11</width><bottom>187</bottom>
+				<texturesliderbackground/>
+				<texturesliderbar colordiffuse="$VAR[c_outline]">white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[c_primary]">white.png</texturesliderbarfocus>
+				<orientation>vertical</orientation>
+			</control>
+			<control type="grouplist">
+				<left>66</left><right>44</right><bottom>44</bottom><height>110</height>
+				<orientation>horizontal</orientation>
+				<align>right</align>
+				<include content="DialogButtonFilled">
+					<param name="id">1000</param>
+					<param name="label">$LOCALIZE[15067]</param>
+				</include>
+			</control>
+		</control>
+	</controls>
+</window>

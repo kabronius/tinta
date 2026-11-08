@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Material 3 components of the Tinta skin.
+     Units: skin px, 1 dp = 2.75 px. Icon placeholders (ic:NAME in braces) are replaced at build time with Material Symbols glyphs. -->
+<includes>
+	<include file="Variables_Colors.xml"/>
+	<include file="Variables.xml"/>
+	<include file="Includes_Views.xml"/>
+	<include file="Includes_Dialogs.xml"/>
+	<include file="Includes_Slots.xml"/>
+
+	<!-- ===== Animations ("emphasized" easing approximated with cubic out) ===== -->
+	<include name="AnimWindow">
+		<animation effect="fade" start="0" end="100" time="200" tween="cubic" easing="out">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="150" tween="cubic" easing="in">WindowClose</animation>
+	</include>
+	<include name="AnimDialog">
+		<animation type="WindowOpen">
+			<effect type="fade" start="0" end="100" time="200" tween="cubic" easing="out"/>
+			<effect type="zoom" start="92" end="100" center="auto" time="250" tween="cubic" easing="out"/>
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="150" tween="cubic" easing="in"/>
+			<effect type="zoom" start="100" end="95" center="auto" time="150" tween="cubic" easing="in"/>
+		</animation>
+	</include>
+	<include name="AnimSheetRight">
+		<animation type="WindowOpen">
+			<effect type="slide" start="300,0" end="0,0" time="300" tween="cubic" easing="out"/>
+			<effect type="fade" start="0" end="100" time="200"/>
+		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="300,0" time="200" tween="cubic" easing="in"/>
+			<effect type="fade" start="100" end="0" time="200"/>
+		</animation>
+	</include>
+
+	<!-- ===== Surfaces ===== -->
+	<include name="Background">
+		<control type="image">
+			<left>0</left><top>0</top><right>0</right><bottom>0</bottom>
+			<texture colordiffuse="$VAR[c_surface]">white.png</texture>
+		</control>
+	</include>
+	<include name="Scrim">
+		<control type="image">
+			<left>-200</left><top>-200</top><right>-200</right><bottom>-200</bottom>
+			<texture colordiffuse="scrim">white.png</texture>
+		</control>
+	</include>
+	<!-- Tinted rounded rectangle. r: 22|33|44|55|66|77|99 -->
+	<include name="Shape">
+		<!-- fills the parent group; margins are optional -->
+		<param name="left">0</param><param name="top">0</param>
+		<param name="right">0</param><param name="bottom">0</param>
+		<param name="r">44</param><param name="color">$VAR[c_surface_container]</param>
+		<param name="visible">true</param><param name="kind"></param>
+		<definition>
+			<control type="image">
+				<left>$PARAM[left]</left><top>$PARAM[top]</top>
+				<right>$PARAM[right]</right><bottom>$PARAM[bottom]</bottom>
+				<texture border="$PARAM[r]" colordiffuse="$PARAM[color]">shapes/r$PARAM[r]$PARAM[kind].png</texture>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<!-- ===== Icons and text ===== -->
+	<include name="Icon">
+		<param name="left">0</param><param name="top">0</param>
+		<param name="width">66</param><param name="height">66</param>
+		<param name="font">icon</param><param name="color">$VAR[c_on_surface]</param>
+		<param name="visible">true</param>
+		<definition>
+			<control type="label">
+				<left>$PARAM[left]</left><top>$PARAM[top]</top>
+				<width>$PARAM[width]</width><height>$PARAM[height]</height>
+				<label>$PARAM[icon]</label>
+				<font>$PARAM[font]</font>
+				<textcolor>$PARAM[color]</textcolor>
+				<selectedcolor>$PARAM[color]</selectedcolor>
+				<align>center</align><aligny>center</aligny>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<!-- M3 icon button (48dp = 132 px). 132x132 touch area, focus = tonal circle. -->
+	<include name="IconButton">
+		<param name="left">0</param><param name="top">0</param>
+		<param name="color">$VAR[c_on_surface_variant]</param>
+		<param name="bg">01000000</param>
+		<param name="font">icon</param>
+		<param name="visible">true</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left><top>$PARAM[top]</top>
+				<width>132</width><height>132</height>
+				<visible>$PARAM[visible]</visible>
+				<control type="image">
+					<texture colordiffuse="$PARAM[bg]">shapes/circle.png</texture>
+				</control>
+				<control type="image">
+					<texture colordiffuse="1FFFFFFF">shapes/circle.png</texture>
+					<visible>Control.HasFocus($PARAM[id])</visible>
+				</control>
+				<control type="button" id="$PARAM[id]">
+					<texturefocus/><texturenofocus/>
+					<label/>
+					<textcolor>00000000</textcolor><focusedcolor>00000000</focusedcolor><disabledcolor>00000000</disabledcolor>
+					<onclick>$PARAM[onclick]</onclick>
+				</control>
+				<control type="label">
+					<label>$PARAM[icon]</label>
+					<font>$PARAM[font]</font>
+					<textcolor>$PARAM[color]</textcolor>
+					<selectedcolor>$PARAM[color]</selectedcolor>
+					<align>center</align><aligny>center</aligny>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- M3 button with icon and text; colours via bg/fg, outline via kind=_o.
+	     Height 40dp = 110 (r=55) or 56dp = 154 (r=77) -->
+	<include name="Button">
+		<param name="left">0</param><param name="top">0</param>
+		<param name="width">400</param><param name="height">132</param><param name="r">66</param>
+		<param name="bg">$VAR[c_primary]</param><param name="fg">$VAR[c_on_primary]</param>
+		<param name="kind"></param>
+		<param name="icon"></param><param name="showicon">true</param>
+		<param name="font">label_l</param><param name="iconfont">icon_fill</param>
+		<param name="visible">true</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left><top>$PARAM[top]</top>
+				<width>$PARAM[width]</width><height>$PARAM[height]</height>
+				<visible>$PARAM[visible]</visible>
+				<control type="image">
+					<texture border="$PARAM[r]" colordiffuse="$PARAM[bg]">shapes/r$PARAM[r]$PARAM[kind].png</texture>
+				</control>
+				<control type="image">
+					<texture border="$PARAM[r]" colordiffuse="1FFFFFFF">shapes/r$PARAM[r].png</texture>
+					<visible>Control.HasFocus($PARAM[id])</visible>
+				</control>
+				<control type="button" id="$PARAM[id]">
+					<texturefocus/><texturenofocus/>
+					<label/>
+					<textcolor>00000000</textcolor><focusedcolor>00000000</focusedcolor><disabledcolor>00000000</disabledcolor>
+					<onclick>$PARAM[onclick]</onclick>
+				</control>
+				<control type="grouplist">
+					<height>$PARAM[height]</height>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+					<itemgap>22</itemgap>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<width>auto</width><height>$PARAM[height]</height>
+						<label>$PARAM[icon]</label>
+						<font>$PARAM[iconfont]</font>
+						<textcolor>$PARAM[fg]</textcolor>
+						<selectedcolor>$PARAM[fg]</selectedcolor>
+						<aligny>center</aligny>
+						<visible>$PARAM[showicon]</visible>
+					</control>
+					<control type="label">
+						<width>auto</width><height>$PARAM[height]</height>
+						<label>$PARAM[label]</label>
+						<font>$PARAM[font]</font>
+						<textcolor>$PARAM[fg]</textcolor>
+						<selectedcolor>$PARAM[fg]</selectedcolor>
+						<aligny>center</aligny>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- M3 filter chip (32dp = 88 px) with selected state -->
+	<include name="Chip">
+		<param name="width">260</param>
+		<param name="selected">false</param>
+		<definition>
+			<control type="group">
+				<width>$PARAM[width]</width><height>132</height>
+				<control type="image">
+					<top>22</top><height>88</height>
+					<texture border="22" colordiffuse="$VAR[c_outline_variant]">shapes/r22_o.png</texture>
+					<visible>!$PARAM[selected]</visible>
+				</control>
+				<control type="image">
+					<top>22</top><height>88</height>
+					<texture border="22" colordiffuse="$VAR[c_secondary_container]">shapes/r22.png</texture>
+					<visible>$PARAM[selected]</visible>
+				</control>
+				<control type="button" id="$PARAM[id]">
+					<texturefocus/><texturenofocus/>
+					<label>$PARAM[label]</label>
+					<font>label_l</font>
+					<align>center</align><aligny>center</aligny>
+					<textcolor>$VAR[c_on_surface_variant]</textcolor>
+					<focusedcolor>$VAR[c_on_surface]</focusedcolor>
+					<onclick>$PARAM[onclick]</onclick>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- ===== Navigation rail (80dp = 220 px) ===== -->
+	<include name="NavRail">
+		<control type="group">
+			<left>0</left><top>0</top><width>220</width><bottom>0</bottom>
+			<!-- search FAB: 56dp = 154 px, r 16dp = 44 -->
+			<control type="group">
+				<left>33</left><top>22</top><width>154</width><height>154</height>
+				<control type="image">
+					<texture border="44" colordiffuse="$VAR[c_primary_container]">shapes/r44.png</texture>
+				</control>
+				<control type="image">
+					<texture border="44" colordiffuse="1FFFFFFF">shapes/r44.png</texture>
+					<visible>Control.HasFocus(9100)</visible>
+				</control>
+				<control type="button" id="9100">
+					<texturefocus/><texturenofocus/>
+					<label/>
+					<textcolor>00000000</textcolor><focusedcolor>00000000</focusedcolor>
+					<onclick>$VAR[SearchAction]</onclick>
+					<onright>SetFocus(9101)</onright>
+					<ondown>9101</ondown>
+				</control>
+				<include content="Icon">
+					<param name="left">44</param><param name="top">44</param>
+					<param name="icon">{ic:search}</param>
+					<param name="color">$VAR[c_on_primary_container]</param>
+				</include>
+			</control>
+			<!-- entries -->
+			<control type="list" id="9101">
+				<left>0</left><top>209</top><width>220</width><height>710</height>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<onup>9100</onup>
+				<ondown>9109</ondown>
+				<onright>$VAR[RailOnRight]</onright>
+				<itemlayout width="220" height="140">
+					<include content="NavRailItem"><param name="focus">false</param></include>
+				</itemlayout>
+				<focusedlayout width="220" height="140">
+					<include content="NavRailItem"><param name="focus">true</param></include>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>$LOCALIZE[10000]</label>
+						<property name="icon">{ic:home}</property>
+						<property name="id">home</property>
+						<onclick>ActivateWindow(home)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[342]</label>
+						<property name="icon">{ic:movie}</property>
+						<property name="id">movies</property>
+						<onclick>ActivateWindow(1110)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[20343]</label>
+						<property name="icon">{ic:tv}</property>
+						<property name="id">shows</property>
+						<onclick>ActivateWindow(1111)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31038]</label>
+						<property name="icon">{ic:live_tv}</property>
+						<property name="id">live</property>
+						<onclick condition="!String.IsEmpty(Skin.String(tinta.live.path))">ActivateWindow(Videos,"$INFO[Skin.String(tinta.live.path)]",return)</onclick>
+						<onclick condition="String.IsEmpty(Skin.String(tinta.live.path))">RunScript(script.tinta.colors,slot,live)</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[24001]</label>
+						<property name="icon">{ic:extension}</property>
+						<property name="id">addons</property>
+						<onclick>ActivateWindow(Videos,addons://sources/video/,return)</onclick>
+					</item>
+				</content>
+			</control>
+			<!-- settings at the bottom -->
+			<include content="IconButton">
+				<param name="id">9109</param>
+				<param name="left">44</param><param name="top">935</param>
+				<param name="icon">{ic:settings}</param>
+				<param name="onclick">ActivateWindow(settings)</param>
+			</include>
+		</control>
+	</include>
+	<include name="NavRailItem">
+		<!-- indicator 56x32dp = 154x88, r 44 -->
+		<control type="image">
+			<left>33</left><top>4</top><width>154</width><height>88</height>
+			<texture border="44" colordiffuse="$VAR[c_secondary_container]">shapes/r44.png</texture>
+			<visible>$EXP[RailItemActive]</visible>
+		</control>
+		<control type="image">
+			<left>33</left><top>4</top><width>154</width><height>88</height>
+			<texture border="44" colordiffuse="1FFFFFFF">shapes/r44.png</texture>
+			<visible>$PARAM[focus] + Control.HasFocus(9101)</visible>
+		</control>
+		<control type="label">
+			<left>33</left><top>4</top><width>154</width><height>88</height>
+			<label>$INFO[ListItem.Property(icon)]</label>
+			<font>icon_fill</font>
+			<textcolor>$VAR[c_on_secondary_container]</textcolor>
+			<selectedcolor>$VAR[c_on_secondary_container]</selectedcolor>
+			<align>center</align><aligny>center</aligny>
+			<visible>$EXP[RailItemActive]</visible>
+		</control>
+		<control type="label">
+			<left>33</left><top>4</top><width>154</width><height>88</height>
+			<label>$INFO[ListItem.Property(icon)]</label>
+			<font>icon</font>
+			<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+			<align>center</align><aligny>center</aligny>
+			<visible>!$EXP[RailItemActive]</visible>
+		</control>
+		<control type="label">
+			<left>0</left><top>92</top><width>220</width><height>44</height>
+			<label>$INFO[ListItem.Label]</label>
+			<font>label_m</font>
+			<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+			<align>center</align><aligny>center</aligny>
+		</control>
+	</include>
+
+	<!-- ===== Top app bar (64dp = 176 px) ===== -->
+	<include name="TopAppBar">
+		<param name="left">220</param>
+		<param name="back">true</param>
+		<param name="titleleft">154</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left><top>11</top><right>44</right><height>154</height>
+				<include content="IconButton">
+					<param name="id">9200</param>
+					<param name="left">0</param><param name="top">11</param>
+					<param name="icon">{ic:arrow_back}</param>
+					<param name="color">$VAR[c_on_surface]</param>
+					<param name="onclick">Back</param>
+					<param name="visible">$PARAM[back]</param>
+				</include>
+				<control type="label">
+					<left>$PARAM[titleleft]</left><right>440</right><top>0</top><height>154</height>
+					<label>$PARAM[title]</label>
+					<font>title_l</font>
+					<textcolor>$VAR[c_on_surface]</textcolor>
+					<selectedcolor>$VAR[c_on_surface]</selectedcolor>
+					<aligny>center</aligny>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- ===== Images ===== -->
+	<include name="PosterArt">
+		<param name="info">$VAR[PosterImage]</param>
+		<definition>
+			<control type="image">
+				<texture colordiffuse="$VAR[c_surface_container_highest]" diffuse="masks/poster.png">white.png</texture>
+			</control>
+			<control type="label">
+				<left>22</left><right>22</right><bottom>22</bottom><height>200</height>
+				<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster)) + String.IsEmpty(ListItem.Art(thumb))</visible>
+				<label>$INFO[ListItem.Label]</label>
+				<font>title_s</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+				<align>center</align><aligny>bottom</aligny>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="image">
+				<texture diffuse="masks/poster.png" background="true">$PARAM[info]</texture>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<fadetime>150</fadetime>
+			</control>
+		</definition>
+	</include>
+
+	<include name="Spinner">
+		<control type="group">
+			<centerleft>50%</centerleft><centertop>50%</centertop>
+			<width>132</width><height>132</height>
+			<control type="label">
+				<label>{ic:hourglass_empty}</label>
+				<font>icon_l</font>
+				<textcolor>$VAR[c_primary]</textcolor>
+				<selectedcolor>$VAR[c_primary]</selectedcolor>
+				<align>center</align><aligny>center</aligny>
+				<animation effect="rotate" end="-360" center="auto" time="1200" loop="true" reversible="false" condition="true">Conditional</animation>
+			</control>
+		</control>
+	</include>
+	<!-- OSD chip over video: light outline, icon + text -->
+	<include name="OSDChip">
+		<definition>
+			<control type="group">
+				<width>440</width><height>132</height>
+				<control type="image">
+					<top>11</top><height>110</height>
+					<texture border="33" colordiffuse="99FFFFFF">shapes/r33_o.png</texture>
+				</control>
+				<control type="image">
+					<top>11</top><height>110</height>
+					<texture border="33" colordiffuse="1FFFFFFF">shapes/r33.png</texture>
+					<visible>Control.HasFocus($PARAM[id])</visible>
+				</control>
+				<control type="button" id="$PARAM[id]">
+					<texturefocus/><texturenofocus/>
+					<label/>
+					<textcolor>00000000</textcolor>
+					<onclick>$PARAM[onclick]</onclick>
+					<onclick>$PARAM[onclick2]</onclick>
+				</control>
+				<control type="label">
+					<left>33</left><top>0</top><width>66</width><height>132</height>
+					<label>$PARAM[icon]</label>
+					<font>icon_s</font>
+					<textcolor>white</textcolor>
+					<selectedcolor>white</selectedcolor>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<left>110</left><right>33</right><top>0</top><height>132</height>
+					<label>$PARAM[label]</label>
+					<font>label_l</font>
+					<textcolor>white</textcolor>
+					<selectedcolor>white</selectedcolor>
+					<aligny>center</aligny>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- menu row with icon (56dp) -->
+	<include name="MenuRow">
+		<control type="group">
+			<width>1034</width><height>154</height>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">1FFFFFFF</param>
+				<param name="visible">$PARAM[focus] + Control.HasFocus(9000)</param>
+			</include>
+			<control type="label">
+				<left>44</left><top>0</top><width>66</width><height>154</height>
+				<label>$INFO[ListItem.Property(icon)]</label>
+				<font>icon</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="label">
+				<left>154</left><right>44</right><top>0</top><height>154</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>body_l</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<selectedcolor>$VAR[c_on_surface]</selectedcolor>
+				<aligny>center</aligny>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">5100</defaultcontrol>
+	<onload>SetProperty(TintaSkin,1,home)</onload>
+	<onload condition="Integer.IsGreater(Container(5000).NumItems,0)">SetFocus(5000)</onload>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<include>NavRail</include>
+
+		<control type="group">
+			<left>231</left><top>0</top><right>55</right><bottom>0</bottom>
+
+			<!-- header -->
+			<control type="label">
+				<left>0</left><top>33</top><right>500</right><height>110</height>
+				<label>$VAR[Greeting]</label>
+				<font>title_l</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="label">
+				<right>0</right><top>33</top><width>500</width><height>110</height>
+				<label>$INFO[System.Time]</label>
+				<font>title_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<align>right</align><aligny>center</aligny>
+			</control>
+
+			<!-- continue watching: carousel of large cards (primaryContainer) -->
+			<control type="list" id="5000">
+				<left>0</left><top>176</top><right>0</right><height>410</height>
+				<orientation>horizontal</orientation>
+				<scrolltime tween="cubic" easing="out">300</scrolltime>
+				<onleft>9101</onleft>
+				<ondown>5100</ondown>
+				<visible>Integer.IsGreater(Container(5000).NumItems,0)</visible>
+				<itemlayout width="1430" height="410">
+					<include content="HeroCard"><param name="focus">false</param></include>
+				</itemlayout>
+				<focusedlayout width="1430" height="410">
+					<include content="HeroCard"><param name="focus">true</param></include>
+				</focusedlayout>
+				<content sortby="lastplayed" sortorder="descending" limit="10">special://skin/playlists/inprogress_episodes.xsp</content>
+				<content sortby="lastplayed" sortorder="descending" limit="10">special://skin/playlists/inprogress_movies.xsp</content>
+			</control>
+
+			<!-- nothing in progress: empty card with a hint -->
+			<control type="group">
+				<left>0</left><top>176</top><width>1400</width><height>410</height>
+				<visible>!Integer.IsGreater(Container(5000).NumItems,0)</visible>
+				<include content="Shape">
+					<param name="r">77</param>
+					<param name="color">$VAR[c_surface_container]</param>
+				</include>
+				<include content="Icon">
+					<param name="left">66</param><param name="top">66</param>
+					<param name="width">121</param><param name="height">121</param>
+					<param name="font">icon_xl_fill</param>
+					<param name="icon">{ic:video_library}</param>
+					<param name="color">$VAR[c_primary]</param>
+				</include>
+				<control type="label">
+					<left>66</left><top>210</top><right>66</right><height>80</height>
+					<label>$LOCALIZE[31020]</label>
+					<font>headline_s</font>
+					<textcolor>$VAR[c_on_surface]</textcolor>
+				</control>
+				<control type="label">
+					<left>66</left><top>290</top><right>66</right><height>60</height>
+					<label>$LOCALIZE[31021]</label>
+					<font>body_l</font>
+					<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				</control>
+			</control>
+
+			<!-- video add-ons -->
+			<control type="label">
+				<left>0</left><top>620</top><right>0</right><height>66</height>
+				<label>$LOCALIZE[31011]</label>
+				<font>title_m</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="list" id="5100">
+				<left>0</left><top>704</top><right>0</right><height>198</height>
+				<orientation>horizontal</orientation>
+				<scrolltime tween="cubic" easing="out">300</scrolltime>
+				<onleft>9101</onleft>
+				<onup>5000</onup>
+				<itemlayout width="586" height="198">
+					<include content="AddonTile"><param name="focus">false</param></include>
+				</itemlayout>
+				<focusedlayout width="586" height="198">
+					<include content="AddonTile"><param name="focus">true</param></include>
+				</focusedlayout>
+				<content sortby="label">addons://sources/video/</content>
+			</control>
+		</control>
+	</controls>
+</window>

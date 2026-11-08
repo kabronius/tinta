@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">50</defaultcontrol>
+	<views>51,50</views>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<include>NavRail</include>
+		<include content="TopAppBar">
+			<param name="title">$VAR[NavTitle]</param>
+		</include>
+		<!-- actions on the right -->
+		<control type="grouplist">
+			<right>33</right><top>22</top><width>440</width><height>132</height>
+			<orientation>horizontal</orientation>
+			<align>right</align>
+			<itemgap>0</itemgap>
+			<include content="IconButton">
+				<param name="id">9201</param>
+				<param name="icon">$VAR[ViewToggleIcon]</param>
+				<param name="onclick">Skin.ToggleSetting(media_as_list)</param>
+				<param name="visible">$EXP[MediaContent]</param>
+			</include>
+			<include content="IconButton">
+				<param name="id">9202</param>
+				<param name="icon">{ic:sort}</param>
+				<param name="onclick">Container.NextSortMethod</param>
+				<param name="visible">!String.StartsWith(Container.FolderPath,plugin://)</param>
+			</include>
+			<include content="IconButton">
+				<param name="id">9203</param>
+				<param name="icon">{ic:settings}</param>
+				<param name="onclick">Addon.OpenSettings($INFO[Container.PluginName])</param>
+				<param name="visible">!String.IsEmpty(Container.PluginName)</param>
+			</include>
+		</control>
+
+		<include>ViewPosters</include>
+		<include>ViewList</include>
+
+		<control type="group">
+			<visible>Container.IsUpdating</visible>
+			<include>Spinner</include>
+		</control>
+		<control type="label">
+			<left>231</left><right>55</right><top>500</top><height>80</height>
+			<label>$LOCALIZE[284]</label>
+			<font>title_m</font>
+			<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			<align>center</align>
+			<visible>Integer.IsEqual(Container.NumItems,0) + !Container.IsUpdating</visible>
+		</control>
+	</controls>
+</window>

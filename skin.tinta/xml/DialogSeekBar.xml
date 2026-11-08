@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bar shown while seeking or paused with the OSD closed. Core ids: 401 progress. -->
+<window>
+	<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
+	<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+	<controls>
+		<control type="group">
+			<visible>!Window.IsVisible(videoosd) + !Window.IsVisible(musicosd)</visible>
+			<control type="image">
+				<left>0</left><bottom>0</bottom><right>0</right><height>330</height>
+				<texture colordiffuse="B3000000">shapes/fade_v.png</texture>
+			</control>
+			<control type="label">
+				<left>66</left><bottom>110</bottom><width>600</width><height>77</height>
+				<label>$INFO[Player.Time]</label>
+				<font>title_m</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<right>66</right><bottom>110</bottom><width>600</width><height>77</height>
+				<label>$INFO[Player.Duration]</label>
+				<font>title_m</font>
+				<textcolor>CCFFFFFF</textcolor>
+				<align>right</align>
+			</control>
+			<control type="progress">
+				<left>66</left><right>66</right><bottom>66</bottom><height>22</height>
+				<texturebg border="11" colordiffuse="40FFFFFF">shapes/r22.png</texturebg>
+				<midtexture border="11" colordiffuse="$VAR[c_primary]">shapes/r22.png</midtexture>
+				<info>Player.Progress</info>
+			</control>
+			<control type="slider" id="401">
+				<left>0</left><top>0</top><width>1</width><height>1</height>
+				<visible>false</visible>
+			</control>
+			<control type="label">
+				<centerleft>50%</centerleft><centertop>50%</centertop><width>400</width><height>242</height>
+				<label>{ic:pause}</label>
+				<font>icon_xl_fill</font>
+				<textcolor>DDFFFFFF</textcolor>
+				<align>center</align><aligny>center</aligny>
+				<visible>Player.Paused</visible>
+			</control>
+		</control>
+	</controls>
+</window>

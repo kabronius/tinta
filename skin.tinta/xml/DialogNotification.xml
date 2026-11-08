@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- M3 snackbar, bottom centre. Core ids: 400 icon, 401 heading, 402 text. -->
+<window>
+	<animation type="WindowOpen">
+		<effect type="slide" start="0,200" end="0,0" time="250" tween="cubic" easing="out"/>
+		<effect type="fade" start="0" end="100" time="200"/>
+	</animation>
+	<animation type="WindowClose">
+		<effect type="fade" start="100" end="0" time="200"/>
+	</animation>
+	<controls>
+		<control type="group">
+			<centerleft>50%</centerleft><bottom>44</bottom>
+			<width>1320</width><height>198</height>
+			<include content="Shape">
+				<param name="r">22</param>
+				<param name="color">$VAR[c_inverse_surface]</param>
+			</include>
+			<control type="image" id="400">
+				<left>44</left><top>44</top><width>110</width><height>110</height>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="fadelabel" id="401">
+				<left>187</left><right>44</right><top>33</top><height>66</height>
+				<font>title_s</font>
+				<textcolor>$VAR[c_inverse_on_surface]</textcolor>
+				<scrollout>false</scrollout><pauseatend>2000</pauseatend>
+			</control>
+			<control type="fadelabel" id="402">
+				<left>187</left><right>44</right><top>99</top><height>66</height>
+				<font>body_m</font>
+				<textcolor>$VAR[c_inverse_on_surface]</textcolor>
+				<scrollout>false</scrollout><pauseatend>2000</pauseatend>
+			</control>
+		</control>
+	</controls>
+</window>

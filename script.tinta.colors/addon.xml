@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="script.tinta.colors" name="Tinta Colors" version="0.2.0" provider-name="Noel Perez">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1"/>
+		<import addon="script.module.pil" version="1.1.7"/>
+	</requires>
+	<extension point="xbmc.service" library="service.py" start="login"/>
+	<extension point="xbmc.python.script" library="default.py">
+		<provides></provides>
+	</extension>
+	<extension point="kodi.context.item">
+		<menu id="kodi.core.main">
+			<item library="context.py">
+				<label>32000</label>
+				<visible>!String.IsEmpty(Window(Home).Property(TintaSkin)) + ListItem.IsFolder + !ListItem.IsParentFolder + !String.IsEmpty(ListItem.FolderPath)</visible>
+			</item>
+		</menu>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<source>https://github.com/kabronius/tinta</source>
+		<summary lang="en_GB">Colours from artwork and content slots for the Tinta skin</summary>
+		<summary lang="it_IT">Colori dalla copertina e posti di contenuto per la skin Tinta</summary>
+		<description lang="en_GB">Extracts the seed color of the focused item's artwork and publishes a Material 3 dark color scheme as Home window properties (Tinta.*), used by skin.tinta. Adds a "Use in Tinta…" context menu entry that assigns any add-on folder to a skin slot (movie and TV show rows, live TV, search).</description>
+		<description lang="it_IT">Estrae il colore seme dalla copertina dell'elemento selezionato e pubblica uno schema colori Material 3 scuro come proprietà della finestra Home (Tinta.*), usato da skin.tinta. Aggiunge la voce "Usa in Tinta…" al menu contestuale, che assegna una cartella di qualsiasi add-on a un posto della skin (file di film e serie, diretta, ricerca).</description>
+		<license>Apache-2.0</license>
+	</extension>
+</addon>

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- ===== Home: "continue watching" card (1397 x 410) ===== -->
+	<include name="HeroCard">
+		<control type="group">
+			<width>1397</width><height>410</height>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_primary_container]</param>
+			</include>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">14FFFFFF</param>
+				<param name="visible">$PARAM[focus] + Control.HasFocus(5000)</param>
+			</include>
+			<control type="group">
+				<left>33</left><top>33</top><width>230</width><height>344</height>
+				<include content="PosterArt"/>
+			</control>
+			<control type="label">
+				<left>308</left><top>60</top><right>500</right><height>44</height>
+				<label>[UPPERCASE]$LOCALIZE[31010][/UPPERCASE]</label>
+				<font>label_m</font>
+				<textcolor>$VAR[c_on_primary_container]</textcolor>
+				<selectedcolor>$VAR[c_on_primary_container]</selectedcolor>
+			</control>
+			<control type="label">
+				<left>308</left><top>110</top><right>500</right><height>88</height>
+				<label>$VAR[HeroTitle]</label>
+				<font>headline_s</font>
+				<textcolor>$VAR[c_on_primary_container]</textcolor>
+				<selectedcolor>$VAR[c_on_primary_container]</selectedcolor>
+				<scroll>$PARAM[focus]</scroll>
+			</control>
+			<control type="label">
+				<left>308</left><top>200</top><right>500</right><height>55</height>
+				<label>$VAR[ItemSubtitle]</label>
+				<font>body_l</font>
+				<textcolor>$VAR[c_on_primary_container]</textcolor>
+				<selectedcolor>$VAR[c_on_primary_container]</selectedcolor>
+			</control>
+			<control type="progress">
+				<left>308</left><top>290</top><width>720</width><height>11</height>
+				<texturebg colordiffuse="40FFFFFF">white.png</texturebg>
+				<midtexture colordiffuse="$VAR[c_on_primary_container]">white.png</midtexture>
+				<info>ListItem.PercentPlayed</info>
+			</control>
+			<!-- visual "Resume" button: a tap on the card starts playback -->
+			<control type="group">
+				<right>99</right><top>139</top><width>396</width><height>132</height>
+				<include content="Shape">
+					<param name="r">66</param>
+					<param name="color">$VAR[c_primary]</param>
+				</include>
+				<control type="grouplist">
+					<height>132</height>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+					<itemgap>22</itemgap>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<width>auto</width><height>132</height>
+						<label>{ic:play_arrow}</label>
+						<font>icon_fill</font>
+						<textcolor>$VAR[c_on_primary]</textcolor>
+						<selectedcolor>$VAR[c_on_primary]</selectedcolor>
+						<aligny>center</aligny>
+					</control>
+					<control type="label">
+						<width>auto</width><height>132</height>
+						<label>$LOCALIZE[31013]</label>
+						<font>label_l</font>
+						<textcolor>$VAR[c_on_primary]</textcolor>
+						<selectedcolor>$VAR[c_on_primary]</selectedcolor>
+						<aligny>center</aligny>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<!-- ===== Home: add-on tile (553 x 198) ===== -->
+	<include name="AddonTile">
+		<control type="group">
+			<width>553</width><height>198</height>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">$VAR[c_surface_container_high]</param>
+			</include>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">14FFFFFF</param>
+				<param name="visible">$PARAM[focus] + Control.HasFocus(5100)</param>
+			</include>
+			<control type="image">
+				<left>33</left><top>33</top><width>132</width><height>132</height>
+				<texture diffuse="masks/square.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+			</control>
+			<control type="label">
+				<left>198</left><top>40</top><right>33</right><height>66</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>title_m</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<selectedcolor>$VAR[c_on_surface]</selectedcolor>
+				<aligny>center</aligny>
+				<scroll>$PARAM[focus]</scroll>
+			</control>
+			<control type="label">
+				<left>198</left><top>104</top><right>33</right><height>55</height>
+				<label>$INFO[ListItem.AddonSummary]</label>
+				<font>body_s</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+				<aligny>center</aligny>
+			</control>
+		</control>
+	</include>
+
+	<!-- ===== Poster view (panel 51): cell 330 x 594, poster 297 x 446 ===== -->
+	<include name="PosterCell">
+		<param name="list">51</param>
+		<definition>
+		<control type="group">
+			<width>297</width><height>594</height>
+			<control type="group">
+				<width>297</width><height>446</height>
+				<animation effect="zoom" end="104" center="auto" time="150" tween="cubic" easing="out" condition="$PARAM[focus] + Control.HasFocus($PARAM[list])">Conditional</animation>
+				<include content="PosterArt"/>
+				<!-- rating -->
+				<control type="group">
+					<right>16</right><top>16</top><width>140</width><height>66</height>
+					<visible>!String.IsEmpty(ListItem.Rating) + !String.IsEqual(ListItem.Rating,0.0)</visible>
+					<include content="Shape">
+						<param name="r">22</param>
+						<param name="color">D9000000</param>
+					</include>
+					<control type="label">
+						<left>14</left><top>0</top><width>50</width><height>66</height>
+						<label>{ic:star}</label>
+						<font>icon_s_fill</font>
+						<textcolor>$VAR[c_primary]</textcolor>
+						<selectedcolor>$VAR[c_primary]</selectedcolor>
+						<aligny>center</aligny>
+					</control>
+					<control type="label">
+						<left>64</left><top>0</top><width>70</width><height>66</height>
+						<label>$INFO[ListItem.Rating]</label>
+						<font>label_m</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<aligny>center</aligny>
+					</control>
+				</control>
+				<!-- progress -->
+				<control type="progress">
+					<left>22</left><right>22</right><bottom>22</bottom><height>11</height>
+					<texturebg colordiffuse="66000000">white.png</texturebg>
+					<midtexture colordiffuse="$VAR[c_primary]">white.png</midtexture>
+					<info>ListItem.PercentPlayed</info>
+					<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+				</control>
+				<control type="label">
+					<right>22</right><bottom>22</bottom><width>66</width><height>66</height>
+					<label>{ic:check}</label>
+					<font>icon_fill</font>
+					<textcolor>$VAR[c_primary]</textcolor>
+					<selectedcolor>$VAR[c_primary]</selectedcolor>
+					<align>center</align><aligny>center</aligny>
+					<visible>ListItem.IsPlayed</visible>
+				</control>
+			</control>
+			<control type="label">
+				<left>0</left><top>462</top><width>297</width><height>55</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>title_s</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<selectedcolor>$VAR[c_on_surface]</selectedcolor>
+				<scroll>$PARAM[focus]</scroll>
+			</control>
+			<control type="label">
+				<left>0</left><top>514</top><width>297</width><height>50</height>
+				<label>$VAR[ItemSubtitle]</label>
+				<font>body_s</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+			</control>
+		</control>
+		</definition>
+	</include>
+
+	<!-- ===== List view (list 50): row 72dp = 198 ===== -->
+	<include name="ListRow">
+		<control type="group">
+			<width>1964</width><height>198</height>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">$VAR[c_surface_container_high]</param>
+				<param name="visible">$PARAM[focus] + Control.HasFocus(50)</param>
+			</include>
+			<!-- thumbnail: poster if present, otherwise a tonal icon -->
+			<control type="group">
+				<left>33</left><top>22</top><width>103</width><height>154</height>
+				<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				<include content="PosterArt"/>
+			</control>
+			<control type="group">
+				<left>33</left><top>33</top><width>132</width><height>132</height>
+				<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				<control type="image">
+					<texture colordiffuse="$VAR[c_secondary_container]">shapes/circle.png</texture>
+				</control>
+				<control type="image">
+					<texture diffuse="masks/circle.png">$INFO[ListItem.Art(thumb)]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<visible>!String.StartsWith(ListItem.Art(thumb),Default) + !String.IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="label">
+					<label>$VAR[RowIcon]</label>
+					<font>icon</font>
+					<textcolor>$VAR[c_on_secondary_container]</textcolor>
+					<selectedcolor>$VAR[c_on_secondary_container]</selectedcolor>
+					<align>center</align><aligny>center</aligny>
+					<visible>String.StartsWith(ListItem.Art(thumb),Default) | String.IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+			</control>
+			<control type="label">
+				<left>209</left><right>360</right><top>33</top><height>77</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>body_l</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<selectedcolor>$VAR[c_on_surface]</selectedcolor>
+				<aligny>center</aligny>
+				<scroll>$PARAM[focus]</scroll>
+			</control>
+			<control type="label">
+				<left>209</left><right>360</right><top>104</top><height>60</height>
+				<label>$VAR[RowSubtitle]</label>
+				<font>body_m</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="label">
+				<right>66</right><top>0</top><width>300</width><height>198</height>
+				<label>$INFO[ListItem.Label2]</label>
+				<font>label_l</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+				<align>right</align><aligny>center</aligny>
+				<visible>String.IsEmpty(ListItem.Plot) + !ListItem.IsFolder</visible>
+			</control>
+			<control type="label">
+				<right>44</right><top>0</top><width>66</width><height>198</height>
+				<label>{ic:chevron_right}</label>
+				<font>icon</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<selectedcolor>$VAR[c_on_surface_variant]</selectedcolor>
+				<align>center</align><aligny>center</aligny>
+				<visible>ListItem.IsFolder + !ListItem.IsParentFolder</visible>
+			</control>
+		</control>
+	</include>
+
+	<include name="ViewPosters">
+		<control type="panel" id="51">
+			<left>231</left><top>187</top><right>22</right><bottom>0</bottom>
+			<viewtype label="31025">icon</viewtype>
+			<orientation>vertical</orientation>
+			<scrolltime tween="cubic" easing="out">300</scrolltime>
+			<preloaditems>2</preloaditems>
+			<onleft>9101</onleft>
+			<onup>9200</onup>
+			<visible>$EXP[MediaAsPosters]</visible>
+			<itemlayout width="330" height="616">
+				<include content="PosterCell"><param name="focus">false</param></include>
+			</itemlayout>
+			<focusedlayout width="330" height="616">
+				<include content="PosterCell"><param name="focus">true</param></include>
+			</focusedlayout>
+		</control>
+	</include>
+
+	<include name="ViewList">
+		<control type="list" id="50">
+			<left>231</left><top>187</top><right>55</right><bottom>0</bottom>
+			<viewtype label="31024">list</viewtype>
+			<visible>!$EXP[MediaAsPosters]</visible>
+			<orientation>vertical</orientation>
+			<scrolltime tween="cubic" easing="out">250</scrolltime>
+			<onleft>9101</onleft>
+			<onup>9200</onup>
+			<itemlayout width="1964" height="209">
+				<include content="ListRow"><param name="focus">false</param></include>
+			</itemlayout>
+			<focusedlayout width="1964" height="209">
+				<include content="ListRow"><param name="focus">true</param></include>
+			</focusedlayout>
+		</control>
+	</include>
+	<!-- ===== Settings tile (462 x 308) ===== -->
+	<include name="SettingsTile">
+		<control type="group">
+			<width>462</width><height>308</height>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">$VAR[c_surface_container]</param>
+			</include>
+			<include content="Shape">
+				<param name="r">44</param>
+				<param name="color">14FFFFFF</param>
+				<param name="visible">$PARAM[focus] + Control.HasFocus(9000)</param>
+			</include>
+			<control type="image">
+				<left>44</left><top>44</top><width>132</width><height>132</height>
+				<texture colordiffuse="$VAR[c_secondary_container]">shapes/circle.png</texture>
+			</control>
+			<control type="label">
+				<left>44</left><top>44</top><width>132</width><height>132</height>
+				<label>$INFO[ListItem.Property(icon)]</label>
+				<font>icon</font>
+				<textcolor>$VAR[c_on_secondary_container]</textcolor>
+				<selectedcolor>$VAR[c_on_secondary_container]</selectedcolor>
+				<align>center</align><aligny>center</aligny>
+			</control>
+			<control type="label">
+				<left>44</left><top>209</top><right>44</right><height>66</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>title_m</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<selectedcolor>$VAR[c_on_surface]</selectedcolor>
+				<aligny>center</aligny>
+			</control>
+		</control>
+	</include>
+	<!-- ===== Row of posters from an add-on folder (Movies and TV shows pages) =====
+	     params: id (list), title, path, visible -->
+	<include name="PosterRow">
+		<definition>
+			<control type="group">
+				<width>1964</width><height>693</height>
+				<visible>$PARAM[visible]</visible>
+				<control type="label">
+					<left>0</left><top>0</top><width>1500</width><height>77</height>
+					<label>$PARAM[title]</label>
+					<font>title_m</font>
+					<textcolor>$VAR[c_on_surface]</textcolor>
+					<aligny>center</aligny>
+				</control>
+				<control type="list" id="$PARAM[id]">
+					<left>0</left><top>88</top><width>1964</width><height>605</height>
+					<orientation>horizontal</orientation>
+					<scrolltime tween="cubic" easing="out">300</scrolltime>
+					<onleft>9101</onleft>
+					<itemlayout width="330" height="605">
+						<include content="PosterCell"><param name="focus">false</param><param name="list">$PARAM[id]</param></include>
+					</itemlayout>
+					<focusedlayout width="330" height="605">
+						<include content="PosterCell"><param name="focus">true</param><param name="list">$PARAM[id]</param></include>
+					</focusedlayout>
+					<content target="videos">$PARAM[path]</content>
+				</control>
+				<control type="button" id="$PARAM[id]9">
+					<right>0</right><top>0</top><width>400</width><height>77</height>
+					<label>$LOCALIZE[31012]</label>
+					<font>label_l</font>
+					<align>right</align><aligny>center</aligny>
+					<textoffsetx>22</textoffsetx>
+					<textcolor>$VAR[c_primary]</textcolor>
+					<focusedcolor>$VAR[c_primary]</focusedcolor>
+					<texturenofocus/>
+					<texturefocus border="33" colordiffuse="1FFFFFFF">shapes/r33.png</texturefocus>
+					<onclick>ActivateWindow(Videos,"$PARAM[path]",return)</onclick>
+				</control>
+				<control type="group">
+					<left>0</left><top>88</top><width>1964</width><height>446</height>
+					<visible>Container($PARAM[id]).IsUpdating | Integer.IsEqual(Container($PARAM[id]).NumItems,0)</visible>
+					<include>Spinner</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+</includes>

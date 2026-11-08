@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<include>NavRail</include>
+		<include content="TopAppBar">
+			<param name="title">$LOCALIZE[5]</param>
+		</include>
+		<control type="panel" id="9000">
+			<left>231</left><top>198</top><right>22</right><bottom>0</bottom>
+			<orientation>vertical</orientation>
+			<onleft>9101</onleft>
+			<itemlayout width="495" height="341">
+				<include content="SettingsTile"><param name="focus">false</param></include>
+			</itemlayout>
+			<focusedlayout width="495" height="341">
+				<include content="SettingsTile"><param name="focus">true</param></include>
+			</focusedlayout>
+			<content>
+				<item><label>$LOCALIZE[14200]</label><property name="icon">{ic:play_arrow}</property><onclick>ActivateWindow(playersettings)</onclick></item>
+				<item><label>$LOCALIZE[14211]</label><property name="icon">{ic:folder}</property><onclick>ActivateWindow(mediasettings)</onclick></item>
+				<item><label>$LOCALIZE[14206]</label><property name="icon">{ic:palette}</property><onclick>ActivateWindow(interfacesettings)</onclick></item>
+				<item><label>$LOCALIZE[31028]</label><property name="icon">{ic:tune}</property><onclick>ActivateWindow(skinsettings)</onclick></item>
+				<item><label>$LOCALIZE[24001]</label><property name="icon">{ic:extension}</property><onclick>ActivateWindow(addonbrowser)</onclick></item>
+				<item><label>$LOCALIZE[7]</label><property name="icon">{ic:folder_open}</property><onclick>ActivateWindow(filemanager)</onclick></item>
+				<item><label>$LOCALIZE[14036]</label><property name="icon">{ic:dns}</property><onclick>ActivateWindow(servicesettings)</onclick></item>
+				<item><label>$LOCALIZE[13000]</label><property name="icon">{ic:settings}</property><onclick>ActivateWindow(systemsettings)</onclick></item>
+				<item><label>$LOCALIZE[13012]</label><property name="icon">{ic:power_settings_new}</property><onclick>ActivateWindow(shutdownmenu)</onclick></item>
+			</content>
+		</control>
+	</controls>
+</window>

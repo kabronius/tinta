@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Detail page. Core ids: 8 play, 9 resume, 11 trailer, 50 cast. -->
+<window>
+	<defaultcontrol always="true">8</defaultcontrol>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<!-- full-width fanart fading into the surface -->
+		<control type="group">
+			<left>0</left><top>0</top><right>0</right><height>820</height>
+			<control type="image">
+				<texture background="true">$VAR[FanartImage]</texture>
+				<aspectratio aligny="top">scale</aspectratio>
+				<fadetime>300</fadetime>
+			</control>
+			<control type="image">
+				<texture colordiffuse="B3000000">white.png</texture>
+			</control>
+			<control type="image">
+				<top>420</top>
+				<texture colordiffuse="$VAR[c_surface]">shapes/fade_v.png</texture>
+			</control>
+		</control>
+
+		<!-- top bar -->
+		<include content="IconButton">
+			<param name="id">9200</param>
+			<param name="left">33</param><param name="top">22</param>
+			<param name="icon">{ic:arrow_back}</param>
+			<param name="color">white</param>
+			<param name="bg">66000000</param>
+			<param name="onclick">Close</param>
+		</include>
+
+		<!-- poster -->
+		<control type="group">
+			<left>99</left><top>176</top><width>462</width><height>693</height>
+			<include content="PosterArt"/>
+		</control>
+
+		<!-- text and actions -->
+		<control type="group">
+			<left>638</left><top>187</top><right>99</right><bottom>44</bottom>
+			<control type="label">
+				<left>0</left><top>0</top><right>0</right><height>110</height>
+				<label>$VAR[HeroTitle]</label>
+				<font>display_s</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+				<scroll>true</scroll>
+			</control>
+			<control type="grouplist">
+				<left>0</left><top>121</top><right>0</right><height>77</height>
+				<orientation>horizontal</orientation>
+				<itemgap>33</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="label">
+					<width>auto</width><height>77</height>
+					<label>$VAR[DetailMeta]</label>
+					<font>body_l</font>
+					<textcolor>$VAR[c_on_surface_variant]</textcolor>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<width>auto</width><height>77</height>
+					<label>{ic:star}</label>
+					<font>icon_s_fill</font>
+					<textcolor>$VAR[c_primary]</textcolor>
+					<aligny>center</aligny>
+					<visible>!String.IsEmpty(ListItem.Rating)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width><height>77</height>
+					<label>$INFO[ListItem.Rating]</label>
+					<font>body_l</font>
+					<textcolor>$VAR[c_on_surface]</textcolor>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<!-- genres -->
+			<control type="label">
+				<left>0</left><top>220</top><right>0</right><height>66</height>
+				<label>$INFO[ListItem.Genre]</label>
+				<font>label_l</font>
+				<textcolor>$VAR[c_on_secondary_container]</textcolor>
+				<aligny>center</aligny>
+				<visible>!String.IsEmpty(ListItem.Genre)</visible>
+			</control>
+			<control type="textbox">
+				<left>0</left><top>308</top><right>0</right><height>176</height>
+				<label>$INFO[ListItem.Plot]</label>
+				<font>body_m_lines</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<autoscroll delay="6000" time="3000" repeat="8000">true</autoscroll>
+			</control>
+			<control type="grouplist">
+				<left>0</left><top>550</top><right>0</right><height>154</height>
+				<orientation>horizontal</orientation>
+				<itemgap>33</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<include content="Button">
+					<param name="id">9</param>
+					<param name="width">484</param><param name="height">154</param><param name="r">77</param>
+					<param name="icon">{ic:play_arrow}</param>
+					<param name="label">$LOCALIZE[31013]</param>
+					<param name="font">title_m</param>
+					<param name="onclick"></param>
+					<param name="visible">Control.IsEnabled(9)</param>
+				</include>
+				<include content="Button">
+					<param name="id">8</param>
+					<param name="width">484</param><param name="height">154</param><param name="r">77</param>
+					<param name="icon">{ic:play_arrow}</param>
+					<param name="label">$LOCALIZE[31015]</param>
+					<param name="font">title_m</param>
+					<param name="onclick"></param>
+					<param name="bg">$VAR[ResumeAwareBg]</param>
+					<param name="fg">$VAR[ResumeAwareFg]</param>
+				</include>
+				<include content="Button">
+					<param name="id">11</param>
+					<param name="width">440</param><param name="height">154</param><param name="r">77</param>
+					<param name="icon">{ic:movie}</param>
+					<param name="iconfont">icon</param>
+					<param name="label">$LOCALIZE[31016]</param>
+					<param name="font">title_m</param>
+					<param name="bg">$VAR[c_secondary_container]</param>
+					<param name="fg">$VAR[c_on_secondary_container]</param>
+					<param name="onclick"></param>
+					<param name="visible">!String.IsEmpty(ListItem.Trailer)</param>
+				</include>
+			</control>
+		</control>
+	</controls>
+</window>

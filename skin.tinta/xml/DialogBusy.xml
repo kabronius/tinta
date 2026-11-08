@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<animation effect="fade" start="0" end="100" time="200" delay="300">WindowOpen</animation>
+	<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+	<controls>
+		<control type="group">
+			<centerleft>50%</centerleft><centertop>50%</centertop>
+			<width>220</width><height>220</height>
+			<include content="Shape">
+				<param name="r">77</param>
+				<param name="color">$VAR[c_surface_container_highest]</param>
+			</include>
+			<include>Spinner</include>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Add-on information. Core ids: 6 install/uninstall, 7 update, 8 enable/disable, 9 settings,
+     10 dependencies, 12 launch, 13 auto-update, 14 versions, 50 screenshots. -->
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<include>AnimWindow</include>
+	<controls>
+		<include>Background</include>
+		<include content="IconButton">
+			<param name="id">9200</param>
+			<param name="left">33</param><param name="top">22</param>
+			<param name="icon">{ic:arrow_back}</param>
+			<param name="color">$VAR[c_on_surface]</param>
+			<param name="onclick">Close</param>
+		</include>
+		<control type="image">
+			<left>99</left><top>198</top><width>330</width><height>330</height>
+			<texture diffuse="masks/square.png">$INFO[ListItem.Icon]</texture>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+		</control>
+		<control type="group">
+			<left>506</left><top>187</top><right>99</right><bottom>33</bottom>
+			<control type="label">
+				<left>0</left><top>0</top><right>0</right><height>110</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>headline_m</font>
+				<textcolor>$VAR[c_on_surface]</textcolor>
+			</control>
+			<control type="label">
+				<left>0</left><top>110</top><right>0</right><height>66</height>
+				<label>$INFO[ListItem.AddonCreator]$INFO[ListItem.AddonVersion, · ]</label>
+				<font>body_l</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+			</control>
+			<control type="textbox">
+				<left>0</left><top>209</top><right>0</right><height>330</height>
+				<label>$INFO[ListItem.AddonDescription]</label>
+				<font>body_m_lines</font>
+				<textcolor>$VAR[c_on_surface_variant]</textcolor>
+				<autoscroll delay="6000" time="3000" repeat="8000">true</autoscroll>
+			</control>
+			<control type="grouplist" id="9000">
+				<left>0</left><right>0</right><top>583</top><height>110</height>
+				<orientation>horizontal</orientation>
+				<itemgap>22</itemgap>
+				<include content="DialogButtonFilled"><param name="id">12</param><param name="label">$LOCALIZE[518]</param></include>
+				<include content="DialogButtonFilled"><param name="id">6</param></include>
+				<include content="DialogButton"><param name="id">7</param></include>
+				<include content="DialogButton"><param name="id">9</param><param name="label">$LOCALIZE[24020]</param></include>
+				<include content="DialogButton"><param name="id">8</param></include>
+				<include content="DialogButton"><param name="id">10</param><param name="label">$LOCALIZE[39024]</param></include>
+				<include content="DialogButton"><param name="id">14</param><param name="label">$LOCALIZE[24069]</param></include>
+			</control>
+			<control type="radiobutton" id="13">
+				<left>0</left><top>726</top><width>1100</width><height>132</height>
+				<label>$LOCALIZE[21340]</label>
+				<include>SettingRowStyle</include>
+				<textoffsetx>0</textoffsetx>
+				<textureradioonfocus colordiffuse="$VAR[c_primary]">shapes/switch_on.png</textureradioonfocus>
+				<textureradioonnofocus colordiffuse="$VAR[c_primary]">shapes/switch_on.png</textureradioonnofocus>
+				<textureradioofffocus colordiffuse="$VAR[c_outline]">shapes/switch_off.png</textureradioofffocus>
+				<textureradiooffnofocus colordiffuse="$VAR[c_outline]">shapes/switch_off.png</textureradiooffnofocus>
+				<radiowidth>143</radiowidth><radioheight>88</radioheight>
+				<radioposx>913</radioposx>
+			</control>
+		</control>
+		<control type="panel" id="50">
+			<left>0</left><top>0</top><width>1</width><height>1</height>
+			<itemlayout width="1" height="1"/>
+			<focusedlayout width="1" height="1"/>
+		</control>
+	</controls>
+</window>
